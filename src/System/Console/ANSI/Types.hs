@@ -51,9 +51,11 @@ data ColorIntensity = Dull
                     | Vivid
                     deriving (Eq, Ord, Bounded, Enum, Show, Read, Ix)
 
--- | ANSI colors can be set on two different layers
+-- | ANSI colors can be set on two different layers; and extensions permit setting
+-- underline colors.
 data ConsoleLayer = Foreground
                   | Background
+                  | Underline
                   deriving (Eq, Ord, Bounded, Enum, Show, Read, Ix)
 
 -- | ANSI blink speeds: values other than 'NoBlink' are not widely supported
@@ -67,6 +69,9 @@ data Underlining
   = SingleUnderline
   -- | Not widely supported. Not supported natively on Windows 10
   | DoubleUnderline
+  | CurlyUnderline
+  | DottedUnderline
+  | DashedUnderline
   | NoUnderline
   deriving (Eq, Ord, Bounded ,Enum, Show, Read, Ix)
 
